@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>ToDo App</title>
+  </head>
+  <body class="d-flex align-items-center justify-content-center min-vh-100">
+    <!-- start nav and tabs section -->
+    <section class="todo-app container bg-warning p-5">
+      <!-- start completion progress -->
+      <div class="dashboard">
+        <i class="fas fa-face-sad-cry"></i>
+        <svg>
+          <circle class="bg" cx="57" cy="57" r="52" />
+          <circle class="meter-1" cx="57" cy="57" r="52" />
+        </svg>
+      </div>
+      <!-- end completion progress -->
+      <div class="row">
+        <h1 class="mb-5">ToDo App</h1>
+        <form action="" class="row mb-4 p-0">
+          <div class="col-md-8 position-relative">
+            <input type="text" class="form-control" id="todoTextInput" />
+            <div class="error-msg">
+              Task Description Must Contains At Least 8 characters
+            </div>
+          </div>
+          <div class="todo-status col-md-2">
+            <select
+              class="fw-bolder p-1 h-100"
+              name="selectStatus"
+              id="selectTaskStatus"
+            >
+              <option value="current">current</option>
+              <option value="pending">pending</option>
+              <option value="completed">completed</option>
+            </select>
+          </div>
+          <button class="submit col-md-2 btn" id="submitData">Submit</button>
+          <button class="submit col-md-2 btn btn-danger" id="updateData">
+            Update
+          </button>
+        </form>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="pills-current-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-current"
+              type="button"
+              role="tab"
+              aria-controls="pills-current"
+              aria-selected="true"
+            >
+              Current
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="pills-pending-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-pending"
+              type="button"
+              role="tab"
+              aria-controls="pills-pending"
+              aria-selected="false"
+            >
+              Pending
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="pills-completed-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-completed"
+              type="button"
+              role="tab"
+              aria-controls="pills-completed"
+              aria-selected="false"
+            >
+              Completed
+            </button>
+          </li>
+          <!--
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="pills-disabled-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-disabled"
+              type="button"
+              role="tab"
+              aria-controls="pills-disabled"
+              aria-selected="false"
+              disabled
+            >
+              Disabled
+            </button>
+          </li>
+          -->
+        </ul>
+        <!-- start progress bar -->
+        <div class="row">
+          <div class="progress mb-3 px-0">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 50%"
+              aria-valuenow="15"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              50%
+            </div>
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 30%"
+              aria-valuenow="30"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              30%
+            </div>
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 20%"
+              aria-valuenow="20"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              20%
+            </div>
+          </div>
+        </div>
+        <!-- end progress bar -->
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-current"
+            role="tabpanel"
+            aria-labelledby="pills-current-tab"
+            tabindex="0"
+          >
+            <!-- start todo item -->
+            <!--
+            <div class="todo-item row bg-light">
+              <div class="col-md-2 arrows">
+                <span class="bg-warning p-3 rounded rounded-circle">
+                  <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
+                </span>
+                <span class="bg-warning p-3 rounded rounded-circle">
+                  <a href="#"><i class="fa-solid fa-arrow-down"></i></a>
+                </span>
+              </div>
+              <div class="todo-text col-md-6 bg-light">
+                <p>Studying route react session</p>
+              </div>
+              <div class="todo-status col-md-2">
+                <select class="fw-bolder p-1" name="status" id="">
+                  <option value="current">current</option>
+                  <option value="pending">pending</option>
+                  <option value="completed">completed</option>
+                </select>
+              </div>
+              <div class="todo-status col-md-2">
+                <select class="fw-bolder p-1" name="status" id="">
+                  <option value="none">none</option>
+                  <option value="modify">update</option>
+                  <option value="delete">delete</option>
+                </select>
+              </div>
+            </div>
+            -->
+            <!-- end todo item -->
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-pending"
+            role="tabpanel"
+            aria-labelledby="pills-pending-tab"
+            tabindex="0"
+          >
+            ...
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-completed"
+            role="tabpanel"
+            aria-labelledby="pills-completed-tab"
+            tabindex="0"
+          >
+            ...
+          </div>
+          <!--
+          <div
+            class="tab-pane fade"
+            id="pills-disabled"
+            role="tabpanel"
+            aria-labelledby="pills-disabled-tab"
+            tabindex="0"
+          >
+            ...
+          </div>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- end nav and tabs section -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

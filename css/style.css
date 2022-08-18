@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+:root {
+  --completion-percent: 360;
+}
+body {
+  background-color: #b66700;
+}
+.todo-app {
+  position: relative;
+  width: 70%;
+  border-radius: 15px;
+  /*
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;*/
+  /*
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    */
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  display: none;
+}
+.todo-app h1 {
+  font-family: "Bree Serif", serif;
+  font-weight: bold;
+  font-size: 3.5rem;
+  color: #b66700;
+}
+#updateData {
+  display: none;
+}
+.todo-status,
+.todo-edit {
+  padding: 0;
+}
+select {
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #ed9420;
+}
+.todo-app .todo-item {
+  padding: 3px 0 3px 0px;
+  border-bottom: 5px solid #ffc107;
+  border-radius: 5px;
+}
+.todo-app .todo-item .arrows {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.todo-app .todo-item .arrows span.rounded {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todo-app .todo-item .arrows span:nth-child(2) {
+  margin-left: 5px;
+}
+.todo-app .todo-item .arrows span i {
+  font-size: 1.2rem;
+}
+.todo-app .todo-item .todo-text {
+  padding-left: 2px;
+}
+.todo-app .todo-item .todo-text p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+.todo-app .todo-item .todo-status select,
+.todo-app .todo-item .todo-edit select {
+  height: 100%;
+  width: 90%;
+  color: rgb(49, 49, 49);
+  font-size: 1.1rem;
+}
+#pills-completed .todo-item p {
+  text-decoration: line-through;
+  color: green;
+}
+#pills-pending .todo-item p {
+  color: grey;
+}
+/* error message */
+.error-msg {
+  position: absolute;
+  background: #dc3545;
+  color: #fff;
+  width: 85%;
+  top: 95%;
+  left: 13px;
+  z-index: 5555;
+  border-radius: 10px;
+  padding: 7px 15px;
+  display: none;
+}
+.error-msg::before {
+  content: "";
+  width: 1px;
+  height: 1px;
+  border-top: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #dc3545;
+  border-left: 15px solid transparent;
+  position: absolute;
+  bottom: 90%;
+  left: 5px;
+}
+.submit,
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #b66700;
+  color: #fff;
+}
+.btn:hover {
+  color: #fff;
+}
+.nav-link {
+  color: #7a4500;
+}
+.nav-link:focus,
+.nav-link:hover {
+  color: #4b2b00;
+}
+.progress {
+  height: 1.5rem !important;
+}
+.progress div:nth-child(1) {
+  background-color: #cf7601;
+}
+.progress div:nth-child(2) {
+  background-color: grey;
+}
+.progress div:nth-child(3) {
+  background-color: rgb(25, 135, 84);
+}
+/* completion progress */
+.dashboard {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: 35px;
+}
+.dashboard i {
+  position: absolute;
+  top: 30%;
+  right: 30%;
+  font-size: 60px;
+  transform: translateY(50%, 50%);
+}
+svg {
+  width: 114px;
+  height: 114px;
+  margin: 1em;
+}
+
+.bg {
+  fill: none;
+  stroke-width: 10px;
+  stroke: #1a2c34;
+}
+
+[class^="meter-"] {
+  fill: none;
+  stroke-width: 10px;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.meter-1 {
+  stroke-dasharray: 360;
+  stroke-dashoffset: var(--completion-percent);
+  stroke: #b36500;
+  animation: progress-1 1s ease-out;
+}
+
+@keyframes progress-1 {
+  from {
+    stroke-dashoffset: 360;
+  }
+  to {
+    stroke-dashoffset: var(--completion-percent);
+  }
+}
